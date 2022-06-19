@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
-      backgroundColor: this.theme({
-        'brandColor':'#5d3ebc'
-      })
+      colors:{
+        'brandcolor':'#5d3ebc'
+      }
     },
   },
   plugins: [],
