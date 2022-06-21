@@ -5,7 +5,7 @@ import { BiUserPlus } from 'react-icons/bi'
 
 export default function Header() {
   return (
-    <div className='bg-brandcolor'>
+    <div className='bg-brand-color'>
         <div className='container mx-auto  h-11 flex items-center justify-between'>
              <a href='https://www.getir.com'>
                 <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Getir_wordmark.svg/180px-Getir_wordmark.svg.png' 
