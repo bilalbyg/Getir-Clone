@@ -5,6 +5,7 @@ import Campaigns from "./components/Campaigns";
 import MobileApp from "./components/MobileApp";
 import Cards from "./components/Cards";
 import Footer from "./components/Footer";
+import Favourites from "./components/Favourites";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <HeroSection></HeroSection>
       <Categories></Categories>
       <Campaigns></Campaigns>
+      <Favourites></Favourites>
       <MobileApp></MobileApp>
       <Cards></Cards>
       <Footer></Footer>
