@@ -9,7 +9,7 @@ export default function MobileApp() {
           İstediğiniz ürünleri dakikalar içinde kapınıza <br />getirelim.
         </p>
         <nav className="mt-5 flex gap-x-2">
-          <a href="#" className="transition-all hover:scale-105 hover:brightness-200">
+          <a href="#" className="transition-all hover:scale-105">
             <img src="https://getir.com/_next/static/images/appstore-tr-141ed939fceebdcee96af608fa293b31.svg" />
           </a>
           <a href="#" className="transition-all hover:scale-105">
