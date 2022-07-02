@@ -6,14 +6,19 @@ import MobileApp from "./components/MobileApp";
 import Cards from "./components/Cards";
 import Footer from "./components/Footer";
 import Favourites from "./components/Favourites";
+import { useWindowWidth } from "@react-hook/window-size";
 
 function App() {
+
+  const windowWith = useWindowWidth()
+
   return (
     <>
       <Header></Header>
+      {windowWith <= 768 && <Campaigns/>}
       <HeroSection></HeroSection>
       <Categories></Categories>
-      <Campaigns></Campaigns>
+      {windowWith > 768 && <Campaigns/>}
       <Favourites></Favourites>
       <MobileApp></MobileApp>
       <Cards></Cards>

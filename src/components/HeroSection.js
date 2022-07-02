@@ -1,11 +1,14 @@
 import Slider from "react-slick";
 import ReactFlagsSelect from "react-flags-select";
 import { useState } from "react";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useWindowWidth } from "@react-hook/window-size";
 
 export default function HeroSection() {
   const [selected, setSelected] = useState("TR");
+
+  const windowWith = useWindowWidth();
 
   const phones = {
     US: "+1",
@@ -16,24 +19,25 @@ export default function HeroSection() {
   };
 
   const settings = {
-      dots: false,
-      arrows: false,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 700,
-      autoplaySpeed: 3000,
-      cssEase: "linear"
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 700,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
   };
 
   // object-cover : Resize an element’s content to cover its container using .object-cover.
   return (
     <div
-      className="relative h-[500px] before:bg-gradient-to-r before:from-primary-brand-color
+      className="relative h-auto md:h-[500px] before:bg-gradient-to-r before:from-primary-brand-color
                     before:to-transparent before:absolute before:inset-0 before:h-full before:z-10"
     >
-      <Slider {...settings}>
+      {
+        windowWith > 768 && <Slider {...settings}>
         <div>
           <img
             className="w-full h-[500px] object-cover"
@@ -47,8 +51,11 @@ export default function HeroSection() {
           />
         </div>
       </Slider>
-      <div className="container flex justify-between items-center absolute top-0 left-1/2 -translate-x-1/2 h-full z-20">
-        <div className="flex flex-col gap-y-8">
+      }
+
+      <div className="container flex justify-between items-center relative left-0 md:absolute top-0 md:left-1/2 
+                      translate-x-0 md:-translate-x-1/2 h-full z-20">
+        <div className="hidden md:block flex flex-col gap-y-8">
           <img
             width="70%"
             src="https://getir.com/_next/static/images/bimutluluk-b3a7fcb14fc9a9c09b60d7dc9b1b8fd6.svg"
@@ -57,7 +64,7 @@ export default function HeroSection() {
             Dakikalar içinde <br /> kapınızda
           </h3>
         </div>
-        <div className="w-[400px] rounded-lg bg-gray-50 p-6">
+        <div className="w-full md:w-[400px] md:rounded-lg bg-gray-50 p-6">
           <h4 className="text-primary-brand-color font-semibold text-center mb-4">
             Giriş yap veya kayıt ol
           </h4>

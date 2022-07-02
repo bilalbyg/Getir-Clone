@@ -1,14 +1,41 @@
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { BsGlobe } from "react-icons/bs";
+import { Collapse } from "react-collapse";
+import { useState, useEffect } from "react";
+import { useWindowWidth } from "@react-hook/window-size";
+import { IoIosArrowDown } from "react-icons/io";
 
 export default function Footer() {
+  const windowWith = useWindowWidth();
+  const [isOpenFirst, setIsOpenFirst] = useState(true);
+  const [isOpenSecond, setIsOpenSecond] = useState(true);
+  const [isOpenThird, setIsOpenThird] = useState(true);
+
+  const toggleCollapseFirst = () => {
+    if (windowWith <= 768) {
+      setIsOpenFirst(!isOpenFirst);
+    }
+  };
+
+  const toggleCollapseSecond = () => {
+    if (windowWith <= 768) {
+      setIsOpenSecond(!isOpenSecond);
+    }
+  };
+
+  const toggleCollapseThird = () => {
+    if (windowWith <= 768) {
+      setIsOpenThird(!isOpenThird);
+    }
+  };
+
   return (
     <div className="bg-white mt-10 mb-10">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-5 pt-10">
+      <div className="container mx-auto px-4 md:px-0">
+        <div className="grid gap-2 md:gap-4 md:grid-cols-2 lg:grid-cols-5 pt-5 md:pt-10">
           <section>
             <nav className="grid gap-y-4">
-              <h6 className="text-lg text-primary-brand-color">
+              <h6 className="text-lg text-primary-brand-color mb-4">
                 Getir'i indirin
               </h6>
               <a href="#">
@@ -23,148 +50,174 @@ export default function Footer() {
             </nav>
           </section>
           <section>
-            <nav className="grid gap-y-4">
-              <h6 className="text-lg text-primary-brand-color">
+            <nav className="grid gap-y-1 md:gap-y-4">
+              <h6
+                onClick={toggleCollapseFirst}
+                className="text-lg text-primary-brand-color hover:cursor-pointer flex md:items-center justify-between"
+              >
                 Getir'i Keşfedin
+                <button className="md:hidden">
+                  <IoIosArrowDown size={14} />
+                </button>
               </h6>
-              <nav>
-                <ul className="grid gap-y-2">
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Hakkımızda
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Kariyer
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Teknoloji Kariyerleri
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        İletişim
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm">
-                        COVID-19 Duyuru
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm">
-                        Sosyal Sorumluluk Projeleri
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <Collapse isOpened={isOpenFirst}>
+                <nav>
+                  <ul className="grid gap-y-2">
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Hakkımızda
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Kariyer
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Teknoloji Kariyerleri
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          İletişim
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm">
+                          COVID-19 Duyuru
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm">
+                          Sosyal Sorumluluk Projeleri
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </Collapse>
             </nav>
           </section>
           <section>
-            <nav className="grid gap-y-4">
-              <h6 className="text-lg text-primary-brand-color">
+            <nav className="grid gap-y-1 md:gap-y-4">
+              <h6
+                onClick={toggleCollapseSecond}
+                className="text-lg text-primary-brand-color hover:cursor-pointer flex md:items-center justify-between"
+              >
                 Yardıma mı ihtiyacınız var?
+                <button className="md:hidden">
+                  <IoIosArrowDown size={14} />
+                </button>
               </h6>
-              <nav>
-                <ul className="grid gap-y-2">
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Sıkça Sorulan Sorular
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Kişisel Verilerin Korunması
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Gizlilik Politikası
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Kullanım Koşulları
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm">
-                        Çerez Politikası
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <Collapse isOpened={isOpenSecond}>
+                <nav>
+                  <ul className="grid gap-y-2">
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Sıkça Sorulan Sorular
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Kişisel Verilerin Korunması
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Gizlilik Politikası
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Kullanım Koşulları
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm">
+                          Çerez Politikası
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </Collapse>
             </nav>
           </section>
           <section>
-            <nav className="grid gap-y-4">
-              <h6 className="text-lg text-primary-brand-color">
+            <nav className="grid gap-y-1 md:gap-y-4">
+              <h6
+                onClick={toggleCollapseThird}
+                className="text-lg text-primary-brand-color hover:cursor-pointer flex md:items-center justify-between"
+              >
                 İş Ortağımız Olun
+                <button className="md:hidden">
+                  {/* <span className={`transition-all transform ${isOpenThird ? '-rotate-180' : ''}`}> */}
+                    <IoIosArrowDown size={14} />
+                  {/* </span> */}
+                </button>
               </h6>
-              <nav>
-                <ul className="grid gap-y-2">
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Bayimiz Olun
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Deponuzu Kiralayın
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Getir Yemek Restoranı Olun
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
-                        Getir Çarşı İşletmesi Olun
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="">
-                      <span className="text-gray-600 text-sm hover:text-primary-brand-colortracking-wide">
-                        Zincir Restoranlar
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <Collapse isOpened={isOpenThird}>
+                <nav>
+                  <ul className="grid gap-y-2">
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Bayimiz Olun
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Deponuzu Kiralayın
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Getir Yemek Restoranı Olun
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-color tracking-wide">
+                          Getir Çarşı İşletmesi Olun
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="">
+                        <span className="text-gray-600 text-sm hover:text-primary-brand-colortracking-wide">
+                          Zincir Restoranlar
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </Collapse>
             </nav>
           </section>
           <div>
@@ -174,7 +227,7 @@ export default function Footer() {
             />
           </div>
         </div>
-        <div className="flex justify-between items-center border-t border-gray-100 mt-6 pt-6 px-8">
+        <div className="flex flex-col md:flex-row gap-y-4 justify-between items-center border-t border-gray-100 mt-6 pt-6 px-8">
           <div className="text-sm text-gray-600">© 2022 Getir</div>
           <nav className="flex justify-between gap-x-5 text-xl">
             <div className="flex items-center p-2 gap-x-1 text-gray-500 hover:bg-gray-200 hover:text-primary-brand-color hover:cursor-pointer border hover:rounded-lg">
@@ -188,7 +241,7 @@ export default function Footer() {
             </div>
             <a className="flex items-center text-sm font-semibold p-2 gap-x-1 text-gray-500 hover:bg-gray-200 hover:text-primary-brand-color hover:cursor-pointer border hover:rounded-lg">
               <BsGlobe></BsGlobe>
-               Türkçe (TR)
+              Türkçe (TR)
             </a>
           </nav>
         </div>

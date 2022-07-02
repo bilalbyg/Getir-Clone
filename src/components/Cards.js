@@ -10,7 +10,7 @@ export default function Cards() {
   }, [])
   
   return (
-    <div className="grid grid-cols-3 gap-x-4 my-20 mx-20">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-0 md:mt-10">
       {cards.length && cards.map(card =>(
         <div className='bg-white rounded-lg shadow-lg flex flex-col gap-y-2 items-center text-center p-14'>
           <img src={card.image} />
